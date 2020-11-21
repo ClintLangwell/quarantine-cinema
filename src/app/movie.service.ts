@@ -6,6 +6,7 @@ import { Movie } from './interfaces/movie';
   providedIn: 'root',
 })
 export class MovieService {
+  movies: Movie[] = [];
   watchList: Movie[] = [];
   trendingBaseUrl: string = 'https://api.themoviedb.org/3/trending/movie/week';
   genreUrl: string = 'https://api.themoviedb.org/3/genre/movie/list';
@@ -74,5 +75,28 @@ export class MovieService {
 
   getWatchList = () => {
     return this.watchList;
+  };
+
+  makeMovies = (data: any): Movie[] => {
+    const movieArray: Movie[] = [];
+    data.forEach((item: any) => {
+      const newMovie: Movie = {
+        title: item.title,
+        genre: item.genre_ids,
+        image: item.poster_path,
+        id: item.id,
+        overview: item.overview,
+        vote_average: item.vote_average,
+        release_date: item.release_date,
+        backdrop_path: item.backdrop_path,
+      };
+
+      movieArray.push(newMovie);
+    });
+    return movieArray;
+  };
+
+  getMovies = (): Movie[] => {
+    return this.movies;
   };
 }
