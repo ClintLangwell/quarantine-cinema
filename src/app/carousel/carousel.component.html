@@ -1,0 +1,27 @@
+<p-carousel
+  [value]="movies"
+  [circular]="true"
+  [contentClass]="movies"
+  [responsiveOptions]="responsiveOptions"
+>
+  <ng-template let-movie pTemplate="item">
+    <div class="movie">
+      <div class="movieInfo" *ngIf="showId === movie.id">
+        <h3>{{ movie.title }}</h3>
+        <p>Release Date: {{ movie.release_date }}</p>
+        <p>{{ movie.genre }}</p>
+        <p>Summary: {{ movie.overview }}</p>
+        <button class="btn" (click)="toggleShowId(movie.id)">Close</button>
+      </div>
+      <img src="{{ movie.image }}" alt="" />
+      <h3>{{ movie.title }}</h3>
+      <div class="controls">
+        <div
+          class="watchList fas fa-film"
+          (click)="addToWatchlist(movie)"
+        ></div>
+        <button class="btn" (click)="toggleShowId(movie.id)">Details</button>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

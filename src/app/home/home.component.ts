@@ -23,24 +23,18 @@ export class HomeComponent implements OnInit {
       this.data = response;
       this.trendingData = this.data.results;
       this.trendingMovies = this.movieService.makeMovies(this.trendingData);
-
-      console.log(this.trendingMovies);
     });
 
     this.movieService.getTopRated().subscribe((response) => {
       this.data = response;
       this.topRatedData = this.data.results;
       this.topRatedMovies = this.movieService.makeMovies(this.topRatedData);
-
-      console.log(this.topRatedMovies);
     });
 
     this.movieService.getPopular().subscribe((response) => {
       this.data = response;
       this.popularData = this.data.results;
       this.popularMovies = this.movieService.makeMovies(this.popularData);
-
-      console.log(this.popularMovies);
     });
   }
 }
