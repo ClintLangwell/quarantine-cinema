@@ -1,4 +1,12 @@
 <app-header></app-header>
-<app-trending-carousel
-  [trendingMovies]="trendingMovies"
-></app-trending-carousel>
+
+<section class="main-container">
+  <h1 class="carousel-title">Top Rated Movies</h1>
+  <app-carousel [movies]="topRatedMovies"></app-carousel>
+
+  <h1 class="carousel-title">Popular Movies</h1>
+  <app-carousel [movies]="popularMovies"></app-carousel>
+
+  <h1 class="carousel-title">Trending Movies</h1>
+  <app-carousel [movies]="trendingMovies"></app-carousel>
+</section>

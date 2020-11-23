@@ -16,6 +16,7 @@ export class MovieService {
   key: string = '4d6b6d705d0ccdf5166bc895195797a2';
   mediaType: string = 'movie';
   timeWindow: string = 'week';
+  imageBaseUrl: string = 'https://image.tmdb.org/t/p/w185';
 
   constructor(private http: HttpClient) {}
 
@@ -83,12 +84,12 @@ export class MovieService {
       const newMovie: Movie = {
         title: item.title,
         genre: item.genre_ids,
-        image: item.poster_path,
+        image: this.imageBaseUrl + item.poster_path,
         id: item.id,
         overview: item.overview,
         vote_average: item.vote_average,
         release_date: item.release_date,
-        backdrop_path: item.backdrop_path,
+        backdrop_path: this.imageBaseUrl + item.backdrop_path,
       };
 
       movieArray.push(newMovie);
