@@ -1,0 +1,26 @@
+<app-header></app-header>
+<section class="watchlist-container">
+  <div class="movie" *ngFor="let movie of watchList">
+    <img src="{{ movie.image }}" alt="movie poster" />
+
+    <div>
+      <p>{{ movie.title }}</p>
+    </div>
+    <div class="btn-div">
+      <div class="watchList fas fa-film" (click)="sendToWatchList(movie)"></div>
+
+      <button class="btn" (click)="toggleShowId(movie.id)">Details</button>
+    </div>
+    <div class="movieInfo" *ngIf="showID === movie.id">
+      <div>
+        <h3 class="title">{{ movie.title }}</h3>
+        <p class="release-date">Release Date: {{ movie.release_date }}</p>
+        <p>{{ movie.genre }}</p>
+        <p class="overview">{{ movie.overview }}</p>
+        <p class="rating">Rating: {{ movie.vote_average }}</p>
+
+        <button class="btn" (click)="toggleShowId(movie.id)">Close</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -19,22 +19,49 @@ export class HomeComponent implements OnInit {
   constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
+    // this.movieService.getTrending().subscribe((response) => {
+    //   this.data = response;
+    //   this.trendingData = this.data.results;
+    //   this.trendingMovies = this.movieService.makeMovies(this.trendingData);
+    // });
+
+    // this.movieService.getTopRated().subscribe((response) => {
+    //   this.data = response;
+    //   this.topRatedData = this.data.results;
+    //   this.topRatedMovies = this.movieService.makeMovies(this.topRatedData);
+    // });
+
+    // this.movieService.getPopular().subscribe((response) => {
+    //   this.data = response;
+    //   this.popularData = this.data.results;
+    //   this.popularMovies = this.movieService.makeMovies(this.popularData);
+    // });
+    this.getTrending();
+    this.getTopRated();
+    this.getPopular();
+  }
+
+  getTrending = () => {
     this.movieService.getTrending().subscribe((response) => {
       this.data = response;
       this.trendingData = this.data.results;
       this.trendingMovies = this.movieService.makeMovies(this.trendingData);
     });
+  };
 
+  getTopRated = () => {
     this.movieService.getTopRated().subscribe((response) => {
       this.data = response;
       this.topRatedData = this.data.results;
       this.topRatedMovies = this.movieService.makeMovies(this.topRatedData);
     });
+  };
 
+  getPopular = () => {
     this.movieService.getPopular().subscribe((response) => {
       this.data = response;
       this.popularData = this.data.results;
       this.popularMovies = this.movieService.makeMovies(this.popularData);
     });
-  }
+  };
 }
