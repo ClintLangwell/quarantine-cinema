@@ -17,10 +17,19 @@
       <h3>{{ movie.title }}</h3>
       <div class="controls">
         <div
+          [ngClass]="{ golden: movie.onWatchList }"
+          pTooltip="Click to add movie to your Watch List"
           class="watchList fas fa-film"
           (click)="addToWatchlist(movie)"
         ></div>
-        <button class="btn" (click)="toggleShowId(movie.id)">Details</button>
+        <button
+          class="btn"
+          (click)="toggleShowId(movie.id)"
+          pTooltip="Click For Movie Details"
+          tooltipZindex="auto"
+        >
+          Details
+        </button>
       </div>
     </div>
   </ng-template>

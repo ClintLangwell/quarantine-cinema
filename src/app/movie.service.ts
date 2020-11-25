@@ -54,7 +54,7 @@ export class MovieService {
     });
   };
 
-  runSearch = (term: string) => {
+  runSearch = (term: string): any => {
     return this.http.get(this.multiSearchUrl, {
       params: {
         api_key: this.key,
@@ -90,9 +90,14 @@ export class MovieService {
         vote_average: item.vote_average,
         release_date: item.release_date,
         backdrop_path: this.imageBaseUrl + item.backdrop_path,
+        onWatchList: false,
       };
-
       movieArray.push(newMovie);
+    });
+    movieArray.forEach((movie: Movie, index) => {
+      if (movie.image.includes('null')) {
+        movieArray.splice(index, 1);
+      }
     });
     return movieArray;
   };

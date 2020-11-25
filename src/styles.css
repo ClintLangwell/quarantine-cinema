@@ -56,3 +56,12 @@ ul.p-carousel-indicators.p-reset {
   padding: 10px;
   cursor: pointer;
 }
+
+.golden {
+  background-color: gold;
+}
+
+button:p-tooltip {
+  background-color: white;
+  z-index: 3;
+}
