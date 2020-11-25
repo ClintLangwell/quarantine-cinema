@@ -49,6 +49,7 @@ export class SearchComponent implements OnInit {
 
   sendToWatchList = (movie: any) => {
     this.movieService.addToWatchList(movie);
+    // movie.onWatchList = !movie.onWatchList;
   };
 
   toggleShowId = (id: number) => {

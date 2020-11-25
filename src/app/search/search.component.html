@@ -7,7 +7,11 @@
       <p>{{ movie.title }}</p>
     </div>
     <div class="btn-div">
-      <div class="watchList fas fa-film" (click)="sendToWatchList(movie)"></div>
+      <div
+        [ngClass]="{ golden: movie.onWatchList }"
+        class="watchList fas fa-film"
+        (click)="sendToWatchList(movie)"
+      ></div>
 
       <button class="btn" (click)="toggleShowId(movie.id)">Details</button>
     </div>

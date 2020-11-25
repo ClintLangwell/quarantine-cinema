@@ -69,6 +69,7 @@ export class MovieService {
     });
     if (index === -1) {
       this.watchList.push(movie);
+      movie.onWatchList = !movie.onWatchList;
     } else {
       this.watchList.splice(index, 1);
     }
@@ -90,7 +91,7 @@ export class MovieService {
         vote_average: item.vote_average,
         release_date: item.release_date,
         backdrop_path: this.imageBaseUrl + item.backdrop_path,
-        onWatchList: false,
+        onWatchList: this.watchList.some((movie) => movie.id === item.id),
       };
       movieArray.push(newMovie);
     });

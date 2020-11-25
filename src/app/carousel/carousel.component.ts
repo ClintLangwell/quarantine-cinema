@@ -43,6 +43,6 @@ export class CarouselComponent implements OnInit {
 
   addToWatchlist = (movie: Movie) => {
     this.movieService.addToWatchList(movie);
-    movie.onWatchList = !movie.onWatchList;
+    // movie.onWatchList = !movie.onWatchList;
   };
 }
